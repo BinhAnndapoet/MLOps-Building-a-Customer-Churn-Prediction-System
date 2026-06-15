@@ -6,3 +6,4 @@ matplotlib
 seaborn
 feast
 feast[redis]
+boto3
