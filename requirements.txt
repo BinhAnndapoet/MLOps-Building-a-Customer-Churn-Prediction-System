@@ -7,3 +7,7 @@ seaborn
 feast
 feast[redis]
 boto3
+grpcio 
+grpcio-tools
+grpcio-health-checking
+grpcio-reflection
