@@ -1,8 +1,0 @@
-[core]
-    remote = local-s3
-['remote "local-s3"']
-    url = s3://churn-data/dvc-store
-    endpointurl = http://localhost:4566
-    access_key_id = test
-    secret_access_key = test
-    region = us-east-1
