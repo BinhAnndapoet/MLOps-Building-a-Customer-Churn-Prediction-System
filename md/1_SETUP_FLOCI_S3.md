@@ -117,7 +117,7 @@ Kết quả mong đợi:
 Di chuyển vào thư mục dự án:
 
 ```powershell
-cd D:\MLOps\MLOps-Building-a-Customer-Churn-Prediction-System
+cd D:\MLOps\MLOps-Building-a-Customer-Churn-Prediction-System\data-pipeline
 ```
 
 ### Bước 1: Khai báo remote storage
@@ -163,25 +163,27 @@ Sau khi hoàn tất thiết lập, quy trình làm việc sẽ như sau:
 ### 1. Chạy pipeline xử lý dữ liệu
 
 ```powershell
-python data-pipeline/scripts/split_data.py
+python scripts/split_data.py
 ```
 
 ### 2. Theo dõi dữ liệu bằng DVC
 
 ```powershell
-dvc add data-pipeline/data/raw/train_period_1.csv
+dvc add data/raw/train_period_1.csv data/processed/df_processed.csv
 ```
 
 DVC sẽ tạo:
 
 ```text
 train_period_1.csv.dvc
+df_processed.csv.dvc
 ```
 
 ### 3. Commit metadata lên Git
 
 ```powershell
-git add train_period_1.csv.dvc .gitignore
+git add data/raw/train_period_1.csv.dvc data/raw/.gitignore
+git add data/processed/df_processed.csv.dvc data/processed/.gitignore
 git commit -m "Track training dataset with DVC"
 ```
 
@@ -244,7 +246,7 @@ Nếu clone project trên máy mới:
 ```powershell
 git clone <repository-url>
 
-cd MLOps-Building-a-Customer-Churn-Prediction-System
+cd MLOps-Building-a-Customer-Churn-Prediction-System\data-pipeline
 ```
 
 Sau khi cấu hình DVC remote:
